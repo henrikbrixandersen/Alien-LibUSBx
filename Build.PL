@@ -31,7 +31,9 @@ my $builder = Alien::Base::ModuleBuild->new(
     },
 
     requires => {
+        'perl' => '5.006',
         'Alien::Base' => '0.003',
+        'Test::More' => '0',
     },
 
     alien_name => 'libusbx',
