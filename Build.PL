@@ -27,19 +27,22 @@ my $builder = Alien::Base::ModuleBuild->new(
 
     configure_requires => {
         'Alien::Base' => '0.003',
-        'Module::Build' => '0.38',
+        'Module::Build' => '0.4004',
+    },
+
+    test_requires => {
+        'Test::More' => '0',
     },
 
     requires => {
         'perl' => '5.006',
         'Alien::Base' => '0.003',
-        'Test::More' => '0',
     },
 
     alien_name => 'libusbx',
     alien_repository_default => {
         protocol => 'http',
-        location => '/project/libusbx/releases/1.0.16/source',
+        location => "/project/libusbx/releases/$libusbx_version/source",
         exact_filename => "libusbx-$libusbx_version.tar.bz2",
         exact_version => $libusbx_version,
     },
