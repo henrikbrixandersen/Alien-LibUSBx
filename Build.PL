@@ -22,7 +22,7 @@ foreach my $mirror (@mirrors) {
 
 my $builder = Alien::Base::ModuleBuild->new(
     module_name => 'Alien::LibUSBx',
-    dist_author => 'Henrik Brix Andersen <henrik@brixandersen.dk>',
+    dist_author => 'Henrik Brix Andersen <brix@cpan.org>',
     license  => 'perl',
 
     configure_requires => {

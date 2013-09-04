@@ -29,7 +29,7 @@ settings from an installed libusbx.
 
 =head1 AUTHOR
 
-Henrik Brix Andersen, C<< <henrik at brixandersen.dk> >>
+Henrik Brix Andersen, C<< <brix at cpan.org> >>
 
 =head1 BUGS
 
