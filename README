@@ -17,7 +17,7 @@ INSTALLATION
 To install this module, run the following commands:
 
 	perl Build.PL
-	perl Build build
+	perl Build
 	perl Build test
 	perl Build install
 
