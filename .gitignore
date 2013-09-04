@@ -8,6 +8,8 @@ Build
 Build.bat
 META.*
 MYMETA.*
+MANIFEST.SKIP.bak
+MANIFEST.bak
 Makefile
 Makefile.old
 _alien
