@@ -39,7 +39,7 @@ my $builder = Alien::Base::ModuleBuild->new(
         'Alien::Base' => '0.003',
     },
 
-    alien_name => 'libusbx',
+    alien_name => 'libusb-1.0',
     alien_repository_default => {
         protocol => 'http',
         location => "/project/libusbx/releases/$libusbx_version/source",
