@@ -2,9 +2,16 @@
 
 use strict;
 
-use Test::More tests => 2;
+use Config;
+use Test::More tests => 5;
 
 BEGIN { use_ok('Alien::LibUSBx'); }
 require_ok('Alien::LibUSBx');
 
-diag("Testing Alien::LibUSBx $Alien::LibUSBx::VERSION, Perl $], $^X");
+diag("Testing Alien::LibUSBx $Alien::LibUSBx::VERSION, Perl $], $^X, OS $^O ($Config{'archname'})");
+
+my $alien = new_ok('Alien::LibUSBx');
+
+isa_ok($alien, 'Alien::Base');
+
+can_ok($alien, qw/cflags libs/);
