@@ -3,10 +3,9 @@
 use strict;
 
 use Config;
-use Test::More tests => 5;
+use Test::More tests => 4;
 
-BEGIN { use_ok('Alien::LibUSBx'); }
-require_ok('Alien::LibUSBx');
+BEGIN { require_ok('Alien::LibUSBx'); }
 
 diag("Testing Alien::LibUSBx $Alien::LibUSBx::VERSION, Perl $], $^X, OS $^O ($Config{'archname'})");
 
