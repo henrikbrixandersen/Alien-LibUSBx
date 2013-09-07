@@ -45,7 +45,6 @@ my $builder = Alien::Base::ModuleBuild->new(
         protocol => 'http',
         location => "/project/libusbx/releases/$libusbx_version/source",
         exact_filename => "libusbx-$libusbx_version.tar.bz2",
-        exact_version => $libusbx_version,
     },
     alien_repository => \@alien_repos,
 );
