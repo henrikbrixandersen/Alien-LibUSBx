@@ -2,10 +2,12 @@
 
 use strict;
 
-use Test::More tests => 2;
+use Test::More;
 
 unless ($ENV{POSTINSTALL_TESTING}) {
     plan(skip_all => "Skipping post-install tests");
+} else {
+    plan tests => 2;
 }
 
 my $libusbx;
