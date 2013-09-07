@@ -12,9 +12,10 @@ MANIFEST.SKIP.bak
 MANIFEST.bak
 Makefile
 Makefile.old
-_alien
+_Inline/
+_alien/
 _build/
-_share
+_share/
 blib/
 cover_db/
 inc/

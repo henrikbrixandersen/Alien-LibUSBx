@@ -13,4 +13,4 @@ my $alien = new_ok('Alien::LibUSBx');
 
 isa_ok($alien, 'Alien::Base');
 
-can_ok($alien, qw/cflags libs/);
+can_ok($alien, qw/cflags libs install_type/);
