@@ -3,30 +3,22 @@
 use strict;
 
 use Test::More;
+use Alien::LibUSBx;
 
-unless ($ENV{POSTINSTALL_TESTING}) {
-    plan(skip_all => "Skipping post-install tests");
+my $libusbx = Alien::LibUSBx->new;
+
+if ($libusbx->install_type eq 'system' || $ENV{POSTINSTALL_TESTING}) {
+    eval 'use Inline';
+    if ($@) {
+        plan(skip_all => 'Inline required');
+    } else {
+        plan tests => 3;
+    }
 } else {
-    plan tests => 2;
+    plan(skip_all => 'Skipping post-install tests');
 }
 
-my $libusbx;
-BEGIN {
-    use Alien::LibUSBx;
-    $libusbx = Alien::LibUSBx->new;
-}
-use Inline (C => 'DATA', CCFLAGS => $libusbx->cflags, LIBS => $libusbx->libs);
-
-my $version = version();
-unlike($version, qr/^Error:/);
-isnt($version, '');
-
-my $type = $libusbx->install_type;
-diag "Initialized libusb-1.0, version $version, install type $type\n";
-
-__DATA__
-__C__
-
+my $c = <<END;
 #include <libusb.h>
 
 SV*
@@ -49,3 +41,14 @@ version()
 
     return sv;
 }
+END
+
+Inline->bind(C => $c, CCFLAGS => $libusbx->cflags, LIBS => $libusbx->libs);
+
+my $version = version();
+unlike($version, qr/^Error:/, 'Initialize libusb-1.0');
+isnt($version, '', 'Nonempty version string');
+isnt($version, undef, 'Defined version string');
+
+my $type = $libusbx->install_type;
+diag "Initialized libusb-1.0, version $version, install type $type\n";
