@@ -16,6 +16,7 @@ Alien::LibUSBx has been successfully tested on the following
 platforms:
 
     Apple OS X (10.8.x)
+    Linux
 
 Please report any further test results, successful as well as
 failures, so the above list can be kept up-to-date.
