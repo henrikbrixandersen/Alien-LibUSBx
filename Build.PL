@@ -47,6 +47,8 @@ my $builder = Alien::Base::ModuleBuild->new(
         exact_filename => "libusbx-$libusbx_version.tar.bz2",
     },
     alien_repository => \@alien_repos,
+
+    add_to_cleanup => ['_Inline'],
 );
 
 $builder->create_build_script;
