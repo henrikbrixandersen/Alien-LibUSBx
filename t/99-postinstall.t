@@ -30,7 +30,7 @@ version()
 
     res = libusb_init(NULL);
     if (res != 0) {
-        sv = newSVpvf("Error: %s", libusb_strerror(res));
+        sv = newSVpvf("Error: %s", libusb_error_name(res));
     } else {
         version = libusb_get_version();
         sv = newSVpvf("%d.%d.%d%s (%d)",
