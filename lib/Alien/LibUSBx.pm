@@ -8,7 +8,7 @@ use parent 'Alien::Base';
 
 =head1 NAME
 
-Alien::LibUSBx - installing, finding and using libusbx
+Alien::LibUSBx - Alien package for libusb-1.0
 
 =head1 VERSION
 
@@ -20,12 +20,14 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
-Please see L<Alien> for the manifesto of the Alien namespace.
+C<Alien::LibUSBx> is an L<Alien> package for libusb-1.0.
 
-In short C<Alien::LibUSBx> can be used to detect and get configuration
-settings from an installed libusbx.
+On installation, C<Alien::LibUSBx> will try to detect whether or not
+libusb-1.0 is already available on the system. If not, the libusb-1.0
+library from the L<libusbx.org> will be installed.
 
-=head1 EXPORT
+C<Alien::LibUSBx> is a simple extension to L<Alien::Base>, please see
+that for API references.
 
 =head1 AUTHOR
 
@@ -33,16 +35,17 @@ Henrik Brix Andersen, C<< <brix at cpan.org> >>
 
 =head1 BUGS
 
-Please report any bugs or feature requests to C<bug-alien-libusbx at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Alien-LibUSBx>.  I will be notified, and then you'll
-automatically be notified of progress on your bug as I make changes.
+Please report any bugs or feature requests to C<bug-alien-libusbx at
+rt.cpan.org>, or through the web interface at
+L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Alien-LibUSBx>.  I
+will be notified, and then you'll automatically be notified of
+progress on your bug as I make changes.
 
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command.
 
     perldoc Alien::LibUSBx
-
 
 You can also look for information at:
 
@@ -66,50 +69,22 @@ L<http://search.cpan.org/dist/Alien-LibUSBx/>
 
 =back
 
+=head1 SEE ALSO
 
-=head1 ACKNOWLEDGEMENTS
-
+L<Alien>, L<Alien::Base>, L<perlartistic>, L<perlgpl>
 
 =head1 LICENSE AND COPYRIGHT
 
 Copyright 2013 Henrik Brix Andersen.
 
-This program is free software; you can redistribute it and/or modify it
-under the terms of the the Artistic License (2.0). You may obtain a
-copy of the full license at:
+This program is free software; you can redistribute it and/or modify
+it under the terms of either:
 
-L<http://www.perlfoundation.org/artistic_license_2_0>
+    a) the GNU General Public License as published by the Free
+    Software Foundation; either version 1, or (at your option) any
+    later version, or
 
-Any use, modification, and distribution of the Standard or Modified
-Versions is governed by this Artistic License. By using, modifying or
-distributing the Package, you accept this license. Do not use, modify,
-or distribute the Package, if you do not accept this license.
-
-If your Modified Version has been derived from a Modified Version made
-by someone other than you, you are nevertheless required to ensure that
-your Modified Version complies with the requirements of this license.
-
-This license does not grant you the right to use any trademark, service
-mark, tradename, or logo of the Copyright Holder.
-
-This license includes the non-exclusive, worldwide, free-of-charge
-patent license to make, have made, use, offer to sell, sell, import and
-otherwise transfer the Package with respect to any patent claims
-licensable by the Copyright Holder that are necessarily infringed by the
-Package. If you institute patent litigation (including a cross-claim or
-counterclaim) against any party alleging that the Package constitutes
-direct or contributory patent infringement, then this Artistic License
-to you shall terminate on the date that such litigation is filed.
-
-Disclaimer of Warranty: THE PACKAGE IS PROVIDED BY THE COPYRIGHT HOLDER
-AND CONTRIBUTORS "AS IS' AND WITHOUT ANY EXPRESS OR IMPLIED WARRANTIES.
-THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
-PURPOSE, OR NON-INFRINGEMENT ARE DISCLAIMED TO THE EXTENT PERMITTED BY
-YOUR LOCAL LAW. UNLESS REQUIRED BY LAW, NO COPYRIGHT HOLDER OR
-CONTRIBUTOR WILL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR
-CONSEQUENTIAL DAMAGES ARISING IN ANY WAY OUT OF THE USE OF THE PACKAGE,
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
+    b) the "Artistic License" which comes with this Kit.
 
 =cut
 
