@@ -10,14 +10,25 @@ Alien::LibUSBx is a simple extension to Alien::Base, please see that
 for API references.
 
 
+SUPPORTED PLATFORMS
+
+Alien::LibUSBx has been successfully tested on the following
+platforms:
+
+    Apple OS X (10.8.x)
+
+Please report any further test results, successful as well as
+failures, so the above list can be kept up-to-date.
+
+
 INSTALLATION
 
 To install this module, run the following commands:
 
-	perl Build.PL
-	perl Build
-	perl Build test
-	perl Build install
+    perl Build.PL
+    perl Build
+    perl Build test
+    perl Build install
 
 
 SUPPORT AND DOCUMENTATION
