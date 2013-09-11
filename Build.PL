@@ -5,7 +5,7 @@ use warnings;
 
 use Alien::Base::ModuleBuild;
 
-my $libusbx_version = '1.0.16';
+my $libusbx_version = '1.0.17';
 
 # Mirror list: http://sourceforge.net/apps/trac/sourceforge/wiki/Mirrors
 my @mirrors = qw/aarnet dfn freefr garr heanet hivelocity internode
