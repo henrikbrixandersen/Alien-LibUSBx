@@ -24,7 +24,9 @@ my $c = <<END;
 SV*
 version()
 {
+#if defined(LIBUSBX_API_VERSION) && (LIBUSBX_API_VERSION >= 0x01000100)
     const struct libusb_version *version;
+#endif
     SV *sv;
     int res;
 
@@ -32,10 +34,14 @@ version()
     if (res != 0) {
         sv = newSVpvf("Error: %s", libusb_error_name(res));
     } else {
+#if defined(LIBUSBX_API_VERSION) && (LIBUSBX_API_VERSION >= 0x01000100)
         version = libusb_get_version();
         sv = newSVpvf("%d.%d.%d%s (%d)",
                       version->major, version->minor, version->micro,
                       version->rc, version->nano);
+#else
+        sv = newSVpvf("unknown");
+#endif
         libusb_exit(NULL);
     }
 
@@ -43,7 +49,10 @@ version()
 }
 END
 
-Inline->bind(C => $c, CCFLAGS => $libusbx->cflags, LIBS => $libusbx->libs);
+my $cflags = $libusbx->cflags;
+my $libs = $libusbx->libs;
+diag "Using CFLAGS=$cflags, LIBS=$libs\n";
+Inline->bind(C => $c, CCFLAGS => $cflags, LIBS => $libs);
 
 my $version = version();
 unlike($version, qr/^Error:/, 'Initialize libusb-1.0');

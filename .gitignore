@@ -15,6 +15,7 @@ Makefile.old
 _Inline/
 _alien/
 _build/
+_dummy/
 _share/
 blib/
 cover_db/
