@@ -7,6 +7,7 @@ use Alien::Base::ModuleBuild;
 use Archive::Tar;
 use Carp;
 use Config;
+use Env qw/ALIEN_LIBUSBX_CFLAGS ALIEN_LIBUSBX_LIBS/;
 
 my $libusbx_version = '1.0.17';
 
@@ -62,6 +63,7 @@ my $builder = Alien::Base::ModuleBuild->new(
         'Archive::Tar' => '0',
         'Carp' => '0',
         'Config' => '0',
+        'Env' => '0',
         'Module::Build' => '0.4004',
     },
 
@@ -86,23 +88,21 @@ my $builder = Alien::Base::ModuleBuild->new(
     add_to_cleanup => ['_Inline', '_dummy'],
 );
 
-# FreeBSD 8+ ships with a native libusb-1.0 compatible library
-if ($Config{'osname'} =~ qr/freebsd/i) {
-    if ($Config{'osvers'} =~ qr/^(\d+).*/) {
-        my $major = $1;
-
-        if ($major >= 10) {
-            # FreeBSD 10+ includes a libusb-1.0.pc file, rely on that
-            # for CFLAGS/LIBS
-        } elsif ($major < 8) {
-            croak "FreeBSD version $major.x not supported";
+if (defined($ALIEN_LIBUSBX_CFLAGS) || defined($ALIEN_LIBUSBX_LIBS)) {
+    alien_override($builder, 'unknown', $ALIEN_LIBUSBX_CFLAGS, $ALIEN_LIBUSBX_LIBS);
+} elsif ($Config{'osname'} =~ qr/freebsd/i) {
+   # FreeBSD 8+ ships with a native libusb-1.0 compatible library
+    if (!$builder->do_system($builder->alien_version_check)) {
+        if ($Config{'osvers'} =~ qr/^(\d+).*/) {
+            if ($1 < 8) {
+                croak 'FreeBSD versions below 8.x is not supported';
+            }
         } else {
-            # FreeBSD 8 + 9 lacks a libusb-1.0.pc file, manually
-            # specify CFLAGS/LIBS
-            alien_override($builder, '1.0.9', '-I/usr/include', '-L/usr/lib -lusb');
+            carp 'Could not determine FreeBSD major version';
         }
-    } else {
-        carp 'Could not determine FreeBSD major version, hoping for 10.x';
+        # Some versions of FreeBSD (8.x, 9.x) ship with a native
+        # libusb-1.0 compatible library but no libusb-1.0.pc file
+        alien_override($builder, '1.0.9', '-I/usr/include', '-L/usr/lib -lusb');
     }
 }
 

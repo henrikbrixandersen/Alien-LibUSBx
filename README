@@ -39,6 +39,12 @@ To install this module, run the following commands:
     perl Build test
     perl Build install
 
+If needed, the CFLAGS and LIBS needed for libusb-1.0 can be overriden
+using the following environment variables prior to installation:
+
+    ALIEN_LIBUSBX_CFLAGS
+    ALIEN_LIBUSBX_LIBS
+
 
 SUPPORT AND DOCUMENTATION
 
