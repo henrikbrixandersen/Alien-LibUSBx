@@ -57,6 +57,11 @@ my $builder = Alien::Base::ModuleBuild->new(
     module_name => 'Alien::LibUSBx',
     dist_author => 'Henrik Brix Andersen <brix@cpan.org>',
     license  => 'perl',
+    meta_merge => {
+        resources => {
+            repository => 'https://github.com/henrikbrixandersen/Alien-LibUSBx',
+        },
+    },
 
     configure_requires => {
         'Alien::Base' => '0.003',
