@@ -4,10 +4,10 @@ Alien::LibUSBx is an perl Alien package for libusb-1.0.
 
 On installation, Alien::LibUSBx will try to detect whether or not
 libusb-1.0 is already available on the system. If not, the libusb-1.0
-library from the libusbx.org will be installed.
+library from libusbx.org will be installed.
 
-Alien::LibUSBx is a simple extension to Alien::Base, please see that
-for API references.
+Alien::LibUSBx is a simple extension to Alien::Base, please see
+Alien::Base::Authoring for API reference.
 
 
 SUPPORTED PLATFORMS
@@ -39,8 +39,9 @@ To install this module, run the following commands:
     perl Build test
     perl Build install
 
-If needed, the CFLAGS and LIBS needed for libusb-1.0 can be overriden
-using the following environment variables prior to installation:
+If needed, the CFLAGS and LIBS for a system-provided libusb-1.0 can be
+overridden using the following environment variables prior to
+installation of Alien::LibUSBx:
 
     ALIEN_LIBUSBX_CFLAGS
     ALIEN_LIBUSBX_LIBS
@@ -80,3 +81,7 @@ it under the terms of either:
     later version, or
 
     b) the "Artistic License" which comes with this Kit.
+
+The libusb-1.0 library from libusbx.org, which may be installed by
+Alien::LibUSBx, is released under version 2.1 of the GNU Lesser
+General Public License (LGPL).

@@ -8,15 +8,16 @@ use parent 'Alien::Base';
 
 =head1 NAME
 
-Alien::LibUSBx - Alien package for libusb-1.0
+Alien::LibUSBx - Alien package for libusb (libusb-1.0) which provides
+generic access to USB devices
 
 =head1 VERSION
 
-Version 0.10
+Version 0.11
 
 =cut
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 =head1 SYNOPSIS
 
@@ -24,10 +25,10 @@ C<Alien::LibUSBx> is an L<Alien> package for libusb-1.0.
 
 On installation, C<Alien::LibUSBx> will try to detect whether or not
 libusb-1.0 is already available on the system. If not, the libusb-1.0
-library from the L<libusbx.org> will be installed.
+library from L<libusbx.org> will be installed.
 
 C<Alien::LibUSBx> is a simple extension to L<Alien::Base>, please see
-that for API references.
+L<Alien::Base::Authoring> for API reference.
 
 =head1 AUTHOR
 
@@ -71,7 +72,7 @@ L<http://search.cpan.org/dist/Alien-LibUSBx/>
 
 =head1 SEE ALSO
 
-L<Alien>, L<Alien::Base>, L<perlartistic>, L<perlgpl>
+L<Alien>, L<Alien::Base>, L<Alien::Base::Authoring>, L<perlartistic>, L<perlgpl>
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -80,11 +81,19 @@ Copyright 2013 Henrik Brix Andersen.
 This program is free software; you can redistribute it and/or modify
 it under the terms of either:
 
-    a) the GNU General Public License as published by the Free
-    Software Foundation; either version 1, or (at your option) any
-    later version, or
+=over 4
 
-    b) the "Artistic License" which comes with this Kit.
+=item * the GNU General Public License as published by the Free
+Software Foundation; either version 1, or (at your option) any
+later version, or
+
+=item * the "Artistic License" which comes with this Kit.
+
+=back
+
+The libusb-1.0 library from libusbx.org, which may be installed by
+C<Alien::LibUSBx>, is released under version 2.1 of the GNU Lesser
+General Public License (LGPL).
 
 =cut
 
