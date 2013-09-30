@@ -1,6 +1,7 @@
 Alien-LibUSBx
 
-Alien::LibUSBx is an perl Alien package for libusb-1.0.
+Alien::LibUSBx is a perl Alien package for libusb (libusb-1.0) which
+provides generic access to USB devices
 
 On installation, Alien::LibUSBx will try to detect whether or not
 libusb-1.0 is already available on the system. If not, the libusb-1.0
