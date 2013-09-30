@@ -8,16 +8,15 @@ use parent 'Alien::Base';
 
 =head1 NAME
 
-Alien::LibUSBx - Alien package for libusb (libusb-1.0) which provides
-generic access to USB devices
+Alien::LibUSBx - Alien package for libusb (libusb-1.0) which provides generic access to USB devices
 
 =head1 VERSION
 
-Version 0.11
+Version 0.12
 
 =cut
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 =head1 SYNOPSIS
 

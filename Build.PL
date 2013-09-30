@@ -61,6 +61,7 @@ my $builder = Alien::Base::ModuleBuild->new(
         resources => {
             repository => 'https://github.com/henrikbrixandersen/Alien-LibUSBx',
         },
+        keywords => ['libusb', 'libusb-1.0', 'USB'],
     },
 
     configure_requires => {
