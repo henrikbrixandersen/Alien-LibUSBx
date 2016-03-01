@@ -65,7 +65,7 @@ my $builder = Alien::Base::ModuleBuild->new(
     },
 
     configure_requires => {
-        'Alien::Base' => '0.003',
+        'Alien::Base::ModuleBuild' => '0.003',
         'Archive::Tar' => '0',
         'Carp' => '0',
         'Config' => '0',
