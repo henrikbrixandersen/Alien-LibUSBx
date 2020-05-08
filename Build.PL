@@ -62,6 +62,7 @@ my $builder = Alien::Base::ModuleBuild->new(
         'Config' => '0',
         'Env' => '0',
         'Module::Build' => '0.4004',
+	'Alien::Base::ModuleBuild' => '0',
     },
 
     test_requires => {
