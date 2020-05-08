@@ -9,8 +9,6 @@ use Carp;
 use Config;
 use Env qw/ALIEN_LIBUSBX_CFLAGS ALIEN_LIBUSBX_LIBS/;
 
-my $libusbx_version = '1.0.17';
-
 # Override the CFLAGS/LIBS settings
 sub alien_override($$$$) {
     my ($builder, $version, $cflags, $libs) = @_;
@@ -40,18 +38,11 @@ sub alien_override($$$$) {
     $builder->alien_provides_libs($libs);
 }
 
-# Mirror list: http://sourceforge.net/apps/trac/sourceforge/wiki/Mirrors
-my @mirrors = qw/aarnet dfn freefr garr heanet hivelocity internode
-jaist kaz kent master nchc netcologne softlayer-dal switch tenet ufpr
-waix/;
-
 my @alien_repos;
-foreach my $mirror (@mirrors) {
-    my $alien_repo = {
-        host => "$mirror.dl.sourceforge.net",
-    };
-    push @alien_repos, $alien_repo;
-}
+my $alien_repo = {
+    host => "https://github.com/libusb/libusb/releases",
+};
+push @alien_repos, $alien_repo;
 
 my $builder = Alien::Base::ModuleBuild->new(
     module_name => 'Alien::LibUSBx',
@@ -71,6 +62,7 @@ my $builder = Alien::Base::ModuleBuild->new(
         'Config' => '0',
         'Env' => '0',
         'Module::Build' => '0.4004',
+	'Alien::Base::ModuleBuild' => '0',
     },
 
     test_requires => {
@@ -85,9 +77,8 @@ my $builder = Alien::Base::ModuleBuild->new(
 
     alien_name => 'libusb-1.0',
     alien_repository_default => {
-        protocol => 'http',
-        location => "/project/libusbx/releases/$libusbx_version/source",
-        exact_filename => "libusbx-$libusbx_version.tar.bz2",
+        protocol => 'https',
+        pattern  => qr/^.*\.tar\.bz2$/,
     },
     alien_repository => \@alien_repos,
 
